@@ -25,7 +25,7 @@ public interface crudService {
      * Afficher un élève
      * @return un élève
      */
-    public Eleve getOne(Long ident);
+    public Eleve getOne(Long id);
 
 
     /**

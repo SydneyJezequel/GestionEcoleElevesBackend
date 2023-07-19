@@ -39,9 +39,9 @@ public class crudServiceImpl implements crudService {
 
 
     @Override
-    public Eleve getOne(Long ident)
+    public Eleve getOne(Long id)
     {
-        return crudRepository.findEleveParId(ident);
+        return crudRepository.findEleveParId(id);
     }
 
 
@@ -50,7 +50,7 @@ public class crudServiceImpl implements crudService {
     {
         Eleve eleveSupprime = crudRepository.findEleveParId(ident);
         crudRepository.deleteById(ident);
-        return "L'élève : "+ eleveSupprime.getNom() +"a été supprimé";
+        return "L'élève : "+ eleveSupprime.getNom() +" a été supprimé";
     }
 
 

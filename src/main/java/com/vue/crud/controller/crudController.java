@@ -43,10 +43,10 @@ public class crudController {
     /**
      * Get All.
      */
-    @GetMapping("/crud-get-one/{ident}")
-    public Eleve getOne(@PathVariable("ident") Long ident)
+    @GetMapping("/crud-get-one/{id}")
+    public Eleve getOne(@PathVariable("id") Long id)
     {
-        return crudService.getOne(ident);
+        return crudService.getOne(id);
     }
 
 
