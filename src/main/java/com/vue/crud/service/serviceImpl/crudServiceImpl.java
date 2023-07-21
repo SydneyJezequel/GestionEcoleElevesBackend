@@ -1,10 +1,13 @@
 package com.vue.crud.service.serviceImpl;
 
+import com.vue.crud.bo.Maison;
 import com.vue.crud.repository.crudRepository;
 import com.vue.crud.service.crudService;
 import com.vue.crud.bo.Eleve;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.ArrayList;
 import java.util.List;
 
 
@@ -79,5 +82,14 @@ public class crudServiceImpl implements crudService {
     }
 
 
+    public List<Maison> getMaisons()
+    {
+        List<Maison> listeMaison = new ArrayList<>();
+        listeMaison.add(Maison.SERPENTARD);
+        listeMaison.add(Maison.GRYFONDOR);
+        listeMaison.add(Maison.SERDAIGLE);
+        listeMaison.add(Maison.POUFSOUFLE);
+        return listeMaison;
+    }
 
 }

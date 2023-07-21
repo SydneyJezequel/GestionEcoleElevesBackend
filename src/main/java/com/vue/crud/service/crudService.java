@@ -1,6 +1,8 @@
 package com.vue.crud.service;
 
 import com.vue.crud.bo.Eleve;
+import com.vue.crud.bo.Maison;
+
 import java.util.List;
 
 
@@ -51,7 +53,11 @@ public interface crudService {
     public Eleve putOne(Eleve eleve);
 
 
-
+    /**
+     * Récupérer les maisons de Poudlard.
+     * @return Liste des maisons.
+     */
+    public List<Maison> getMaisons();
 
 
 

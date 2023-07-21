@@ -45,6 +45,14 @@ public class Eleve {
     // **************************** Constructeur ****************************
     public Eleve(){};
 
+    public Eleve(String nom, String prenom, Date dateNaissance, String maison, int annee) {
+        this.nom = nom;
+        this.prenom = prenom;
+        this.dateNaissance = dateNaissance;
+        this.maison = maison;
+        this.annee = annee;
+    }
+
     public Eleve(Long no_eleve, String nom, String prenom, Date dateNaissance, String maison, int annee) {
         this.no_eleve = no_eleve;
         this.nom = nom;

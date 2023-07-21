@@ -1,6 +1,7 @@
 package com.vue.crud.controller;
 
 import com.vue.crud.bo.Eleve;
+import com.vue.crud.bo.Maison;
 import com.vue.crud.service.crudService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -86,6 +87,18 @@ public class crudController {
     public Eleve putOne(@RequestBody Eleve eleve)
     {
         return crudService.putOne(eleve);
+    }
+
+
+
+    /**
+     * Controller qui renvoie la liste des maisons de Poudlard.
+     * @return liste des Maisons.
+     */
+    @GetMapping("/crud-get-maisons")
+    public List<Maison> getMaisons()
+    {
+        return crudService.getMaisons();
     }
 
 
