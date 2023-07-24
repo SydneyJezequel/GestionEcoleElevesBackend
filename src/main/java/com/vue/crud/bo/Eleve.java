@@ -1,5 +1,6 @@
 package com.vue.crud.bo;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
 import java.util.Date;
@@ -38,6 +39,7 @@ public class Eleve {
     private int annee;
 
     @Column(name="notes")
+    @JsonIgnore
     @ManyToMany
     @JoinTable(
             name = "note_eleve",
@@ -46,30 +48,42 @@ public class Eleve {
     )
     private Set<Note> notes;
 
+    @Column(name="moyenne_generale")
+    private Integer moyenneGenerale;
+
+
 
 
 
     // **************************** Constructeur ****************************
     public Eleve(){};
 
-    public Eleve(String nom, String prenom, Date dateNaissance, String maison, int annee) {
+    public Eleve(String nom, String prenom, Date dateNaissance, String maison, int annee, Set<Note> notes, Integer moyenneGenerale) {
         this.nom = nom;
         this.prenom = prenom;
         this.dateNaissance = dateNaissance;
         this.maison = maison;
         this.annee = annee;
+        this.notes = notes;
+        this.moyenneGenerale = moyenneGenerale;
     }
 
-    public Eleve(Long no_eleve, String nom, String prenom, Date dateNaissance, String maison, int annee) {
+    public Eleve(Long no_eleve, String nom, String prenom, Date dateNaissance, String maison, int annee, Set<Note> notes, Integer moyenneGenerale) {
         this.no_eleve = no_eleve;
         this.nom = nom;
         this.prenom = prenom;
         this.dateNaissance = dateNaissance;
         this.maison = maison;
         this.annee = annee;
+        this.notes = notes;
+        this.moyenneGenerale = moyenneGenerale;
     }
 
-//  **************************** Getter / Setter  ****************************
+
+
+
+
+    //  **************************** Getter / Setter  ****************************
 
 
     public Long getNo_eleve() { return no_eleve; }
@@ -108,9 +122,22 @@ public class Eleve {
 
     public void setAnnee(int annee) { this.annee = annee; }
 
+    public Set<Note> getNotes() {
+        return notes;
+    }
 
+    public void setNotes(Set<Note> notes) {
+        this.notes = notes;
+    }
 
+    public Integer getMoyenneGenerale() {
+        return moyenneGenerale;
+    }
 
-
+    public void setMoyenneGenerale(Integer moyenneGenerale) {
+        this.moyenneGenerale = moyenneGenerale;
+    }
 }
+
+
 
