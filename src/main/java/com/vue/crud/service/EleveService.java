@@ -2,13 +2,14 @@ package com.vue.crud.service;
 
 import com.vue.crud.bo.Eleve;
 import com.vue.crud.bo.Maison;
+import org.springframework.web.bind.annotation.PathVariable;
 
 import java.util.List;
 
 
 
 
-public interface crudService {
+public interface EleveService {
 
 
 
@@ -35,7 +36,7 @@ public interface crudService {
      * @param ident
      * @return Message qui indique la suppression de l'élève.
      */
-    public String deleteOne(Long ident);
+    public void deleteOne(Long ident);
 
 
     /**
@@ -58,6 +59,16 @@ public interface crudService {
      * @return Liste des maisons.
      */
     public List<Maison> getMaisons();
+
+
+    /**
+     * Ajouter une note
+     * @param identEleve, identCours, note
+     */
+    public void addNote(Long identEleve, Long identCours, int note);
+
+
+
 
 
 

@@ -10,7 +10,7 @@ import org.springframework.stereotype.Repository;
 
 
 @Repository
-public interface crudRepository extends JpaRepository <Eleve,Long>{
+public interface EleveRepository extends JpaRepository <Eleve,Long>{
 
     @Query("SELECT e FROM Eleve e WHERE e.no_eleve = :id")
     Eleve findEleveParId(@Param("id") Long id);

@@ -1,9 +1,9 @@
 package com.vue.crud.bo;
 
 import jakarta.persistence.*;
+
 import java.util.Date;
-
-
+import java.util.Set;
 
 
 @Entity
@@ -37,7 +37,14 @@ public class Eleve {
     @Column(nullable = false, name="annee")
     private int annee;
 
-
+    @Column(name="notes")
+    @ManyToMany
+    @JoinTable(
+            name = "note_eleve",
+            joinColumns = @JoinColumn(name = "no_eleve"),
+            inverseJoinColumns = @JoinColumn(name = "no_note")
+    )
+    private Set<Note> notes;
 
 
 
@@ -62,13 +69,7 @@ public class Eleve {
         this.annee = annee;
     }
 
-
-
-
-
-
-
-    //  **************************** Getter / Setter  ****************************
+//  **************************** Getter / Setter  ****************************
 
 
     public Long getNo_eleve() { return no_eleve; }
