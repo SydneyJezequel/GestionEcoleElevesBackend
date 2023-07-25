@@ -2,11 +2,13 @@ package com.vue.crud.service;
 
 import com.vue.crud.bo.Eleve;
 import com.vue.crud.bo.Maison;
+import com.vue.crud.bo.Note;
+import com.vue.crud.bo.rapport.DetailNotesParEleve;
 import org.springframework.web.bind.annotation.PathVariable;
 
+import java.util.HashMap;
 import java.util.List;
-
-
+import java.util.Set;
 
 
 public interface EleveService {
@@ -68,6 +70,11 @@ public interface EleveService {
     public void addNote(Long identEleve, Long identCours, int note);
 
 
+    /**
+     * Detail notes élèves
+     * @return La liste des Notes pour chaque élève.
+     */
+    public List<DetailNotesParEleve> detailNotesEleves();
 
 
 

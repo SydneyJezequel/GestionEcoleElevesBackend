@@ -79,6 +79,13 @@ public class Eleve {
         this.moyenneGenerale = moyenneGenerale;
     }
 
+    public Eleve(Long no_eleve, String nom, String prenom, String maison) {
+        this.no_eleve = no_eleve;
+        this.nom = nom;
+        this.prenom = prenom;
+        this.maison = maison;
+    }
+
 
 
 

@@ -3,6 +3,7 @@ package com.vue.crud.service.serviceImpl;
 import com.vue.crud.bo.Discipline;
 import com.vue.crud.bo.Maison;
 import com.vue.crud.bo.Note;
+import com.vue.crud.bo.rapport.DetailNotesParEleve;
 import com.vue.crud.repository.DisciplineRepository;
 import com.vue.crud.repository.EleveRepository;
 import com.vue.crud.repository.NoteRepository;
@@ -11,6 +12,7 @@ import com.vue.crud.bo.Eleve;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Set;
 
@@ -129,6 +131,36 @@ public class EleveServiceImpl implements EleveService {
         // 3- Sauvegarde de l'Elève mis à jour :
         eleveRepository.save(eleveNote);
     }
+
+
+    @Override
+    public List<DetailNotesParEleve> detailNotesEleves()
+    {
+        // Attributs :
+        List<Eleve> listeEleves = eleveRepository.findAll();
+        List<DetailNotesParEleve> listeNotesEleves = new ArrayList<>();
+
+        // Traitements :
+        for(Eleve eleve : listeEleves)
+        {
+            DetailNotesParEleve detailNoteParEleve = new DetailNotesParEleve();
+            detailNoteParEleve.setNo_eleve(eleve.getNo_eleve());
+            detailNoteParEleve.setNom(eleve.getNom());
+            detailNoteParEleve.setPrenom(eleve.getPrenom());
+            detailNoteParEleve.setMaison(eleve.getMaison());
+            for(Note note : eleve.getNotes())
+            {
+                note.setDiscipline(note.getDiscipline());
+            }
+            List<Note> notesEleve = new ArrayList<>(eleve.getNotes());
+            detailNoteParEleve.setListeNotes(notesEleve);
+            listeNotesEleves.add(detailNoteParEleve);
+        }
+
+        return listeNotesEleves;
+    }
+
+
 
 
 

@@ -2,9 +2,13 @@ package com.vue.crud.controller;
 
 import com.vue.crud.bo.Eleve;
 import com.vue.crud.bo.Maison;
+import com.vue.crud.bo.Note;
+import com.vue.crud.bo.rapport.DetailNotesParEleve;
 import com.vue.crud.service.EleveService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.HashMap;
 import java.util.List;
 
 
@@ -108,6 +112,16 @@ public class EleveController {
         eleveService.addNote(identEleve, identCours, note);
     }
 
+
+    /**
+     * Controller qui renvoie la liste des notes d'un élève.
+     * @return liste des notes d'un élève.
+     */
+    @GetMapping("/detail_notes")
+    public List<DetailNotesParEleve> detailNotesEleves()
+    {
+        return eleveService.detailNotesEleves();
+    }
 
 
     
